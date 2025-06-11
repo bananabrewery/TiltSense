@@ -6,6 +6,23 @@ After months of design, development, and testing, the first stable release is fi
 
 ---
 
+## 📦 Project Status
+
+TiltSense is stable and fully functional in its first release. The current firmware is offered as a complete example configuration.
+
+🛠️ **Ongoing development:**  
+I'm actively working on a dynamic firmware generator that will allow users to create a personalized ESPHome YAML configuration based on their specific setup. The generator will take into account:
+
+- ✅ Which **Tilt hydrometers** are used, and their **colors**  
+- 🆚 Whether they are **Tilt** or **Tilt Pro** versions  
+- 🏠 Whether the user has **Home Assistant** integration  
+- 💨 Whether a **pressure sensor** is included  
+- 📡 Whether integration with **Brewfather** is desired  
+
+This will simplify the setup process and help adapt TiltSense to a wide variety of use cases with minimal manual editing.
+
+---
+
 ## 🚀 Features
 
 - **✅ Multi-Tilt Support**  

@@ -1,0 +1,816 @@
+#⚠️ Note:
+#This firmware is provided as a working example and starting point. I’m currently developing a dynamic firmware generator that will tailor the configuration to match the specific Tilt colors and features selected for each setup — stay tuned!
+
+substitutions:
+  name: tiltsense
+  friendly_name: TiltSense
+  brewfather_key: "***************"
+  pressure_sensor_entity_black: sensor.pressure_sensor_pressure_sensor_current_pressure
+  pressure_sensor_entity_purple: "."
+  pressure_sensor_entity_red: "."
+
+esphome:
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  framework:
+    type: arduino
+    version: latest
+  flash_size: 16MB
+
+# Enable logging
+logger:
+  level: DEBUG
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "***************"
+
+ota:
+  - platform: esphome
+    password: "***************"
+
+wifi:
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "TiltSense Fallback Hotspot"
+    password: "***************"
+  power_save_mode: light
+
+captive_portal:
+
+web_server:
+  port: 80
+
+globals:
+  - id: last_ble_update
+    type: unsigned long
+    restore_value: no
+    initial_value: '0'
+  - id: last_touch_time
+    type: unsigned long
+    restore_value: no
+    initial_value: '0'
+  - id: screen_dimmed
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+  - id: enable_tilt_black
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+  - id: enable_tilt_purple
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+  - id: enable_tilt_red
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+  - id: last_touch_x
+    type: int
+    initial_value: '0'
+  - id: last_touch_y
+    type: int
+    initial_value: '0'
+  - id: current_page
+    type: int
+    restore_value: no
+    initial_value: '0'  # 0 = black, 1 = purple, 2 = red
+
+http_request:
+  verify_ssl: False
+
+# Tilt UUIDs by color:
+# Red:      A495BB10-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C510BB95A4
+# Green:    A495BB20-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C520BB95A4
+# Black:    A495BB30-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C530BB95A4
+# Purple:   A495BB40-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C540BB95A4
+# Orange:   A495BB50-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C550BB95A4
+# Blue:     A495BB60-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C560BB95A4
+# Yellow:   A495BB70-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C570BB95A4
+# Pink:     A495BB80-C5B1-4B44-B512-1370F02D74DE    DE742DF0-7013-12B5-4448-B1C580BB95A4
+
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 10000ms
+    window: 1000ms
+  on_ble_advertise:
+    then:
+      - lambda: |-
+          if (x.get_ibeacon().has_value()) {
+            auto ibeacon = x.get_ibeacon().value();
+            std::string uuid = ibeacon.get_uuid().to_string();
+
+            if (uuid == "A495BB30-C5B1-4B44-B512-1370F02D74DE" && id(enable_tilt_black)) {
+              float temp_c = (ibeacon.get_major() - 32) * 5.0f / 9.0f;
+              float gravity = ibeacon.get_minor();
+              ESP_LOGD("tilt", "[BLACK] Publishing: Temperature = %.2f °C, Gravity = %.0f", temp_c, gravity);
+              id(tilt_temperature_black).publish_state(temp_c);
+              id(tilt_gravity_black).publish_state(gravity);
+            }
+            else if (uuid == "A495BB40-C5B1-4B44-B512-1370F02D74DE" && id(enable_tilt_purple)) {
+              float temp_c = (ibeacon.get_major() - 32) * 5.0f / 9.0f;
+              float gravity = ibeacon.get_minor();
+              ESP_LOGD("tilt", "[PURPLE] Publishing: Temperature = %.2f °C, Gravity = %.0f", temp_c, gravity);
+              id(tilt_temperature_purple).publish_state(temp_c);
+              id(tilt_gravity_purple).publish_state(gravity);
+            }
+            else if (uuid == "A495BB10-C5B1-4B44-B512-1370F02D74DE" && id(enable_tilt_red)) {
+              float temp_c = ((ibeacon.get_major() / 10.0f) - 32.0f) * 5.0f / 9.0f;
+              float gravity = ibeacon.get_minor() / 10.0f;
+              ESP_LOGD("tilt", "[RED] Publishing: Temperature = %.2f °C, Gravity = %.1f", temp_c, gravity);
+              id(tilt_temperature_red).publish_state(temp_c);
+              id(tilt_gravity_red).publish_state(gravity);
+            }
+          }
+
+switch:
+  - platform: template
+    name: "Enable Tilt Black"
+    id: switch_enable_tilt_black
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    turn_on_action:
+      - lvgl.arc.update:
+          id: border_circle_black
+          arc_color: 0x000000
+      - lambda: |-
+          id(enable_tilt_black) = true;
+    turn_off_action:
+      - lvgl.arc.update:
+          id: border_circle_black
+          arc_color: 0x808080
+      - lambda: |-
+          id(enable_tilt_black) = false;
+      - sensor.template.publish:
+          id: tilt_gravity_black
+          state: 0.0
+      - sensor.template.publish:
+          id: tilt_temperature_black
+          state: 0.0
+      - lvgl.label.update:
+          id: ble_gravity_label_black
+          text: " "
+      - lvgl.label.update:
+          id: ble_temp_label_black
+          text: " "
+    lambda: |-
+      return id(enable_tilt_black);
+
+  - platform: template
+    name: "Enable Tilt Purple"
+    id: switch_enable_tilt_purple
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    turn_on_action:
+      - lvgl.arc.update:
+          id: border_circle_purple
+          arc_color: 0x800080
+      - lambda: |-
+          id(enable_tilt_purple) = true;
+    turn_off_action:
+      - lvgl.arc.update:
+          id: border_circle_purple
+          arc_color: 0x808080
+      - lambda: |-
+          id(enable_tilt_purple) = false;
+      - sensor.template.publish:
+          id: tilt_gravity_purple
+          state: 0.0
+      - sensor.template.publish:
+          id: tilt_temperature_purple
+          state: 0.0
+      - lvgl.label.update:
+          id: ble_gravity_label_purple
+          text: " "
+      - lvgl.label.update:
+          id: ble_temp_label_purple
+          text: " "
+    lambda: |-
+      return id(enable_tilt_purple);
+
+  - platform: template
+    name: "Enable Tilt Red"
+    id: switch_enable_tilt_red
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    turn_on_action:
+      - lvgl.arc.update:
+          id: border_circle_red
+          arc_color: 0xFF0000
+      - lambda: |-
+          id(enable_tilt_red) = true;
+    turn_off_action:
+      - lvgl.arc.update:
+          id: border_circle_red
+          arc_color: 0x808080
+      - lambda: |-
+          id(enable_tilt_red) = false;
+      - sensor.template.publish:
+          id: tilt_gravity_red
+          state: 0.0
+      - sensor.template.publish:
+          id: tilt_temperature_red
+          state: 0.0
+      - lvgl.label.update:
+          id: ble_gravity_label_red
+          text: " "
+      - lvgl.label.update:
+          id: ble_temp_label_red
+          text: " "
+    lambda: |-
+      return id(enable_tilt_red);
+
+sensor:
+  - platform: internal_temperature
+    name: "${friendly_name} Internal Temperature"  
+
+  - platform: adc
+    pin: GPIO01
+    name: "${friendly_name} Battery Voltage"
+    id: battery_voltage
+    unit_of_measurement: "V"
+    accuracy_decimals: 2
+    device_class: voltage
+    entity_category: diagnostic
+    update_interval: 30s
+    attenuation: auto
+    filters:
+      - calibrate_linear:
+          - 1.49 -> 4.16
+          - 1.26 -> 4.01
+          - 1.20 -> 3.95
+          - 1.07 -> 3.90
+          - 1.04 -> 3.83
+          - 1.02 -> 3.78
+          - 1.00 -> 3.71
+          - 0.96 -> 3.61
+
+  - platform: template
+    name: "${friendly_name} Battery Level"
+    unit_of_measurement: "%"
+    device_class: battery
+    entity_category: diagnostic
+    accuracy_decimals: 0
+    lambda: |-
+              float v = id(battery_voltage).state;
+              float percent = 100.0 / (1.0 + exp(-10.0 * (v - 3.85)));
+              if (percent > 100.0) return 100.0;
+              else if (percent < 0.0) return 0.0;
+              else return percent;
+
+  - platform: template
+    id: tilt_gravity_black
+    name: "Tilt Black Gravity"
+    icon: "mdi:trending-down"
+    accuracy_decimals: 0
+    unit_of_measurement: "SG"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_gravity_label_black
+            text: !lambda |-
+                    char buffer[8];
+                    snprintf(buffer, sizeof(buffer), "%.3f", id(tilt_gravity_black).state / 1000.0);
+                    return std::string(buffer);
+
+  - platform: template
+    name: "Tilt Black Temperature"
+    id: tilt_temperature_black
+    device_class: "temperature"
+    accuracy_decimals: 1
+    unit_of_measurement: "°C"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_temp_label_black
+            text: !lambda |-
+                    char buffer[10];
+                    snprintf(buffer, sizeof(buffer), "%.1f °C", id(tilt_temperature_black).state);
+                    return std::string(buffer);
+    
+  - platform: homeassistant
+    id: pressure_sensor_black
+    entity_id: ${pressure_sensor_entity_black}
+    internal: True
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: pressure_label_black
+            text: !lambda |-
+              char buffer[10];
+              if (std::isnan(id(pressure_sensor_black).state)) {
+                return std::string("");
+              } else {
+                snprintf(buffer, sizeof(buffer), "%.1f PSI", id(pressure_sensor_black).state);
+                return std::string(buffer);
+              }
+
+  - platform: template
+    id: tilt_gravity_purple
+    name: "Tilt Purple Gravity"
+    icon: "mdi:trending-down"
+    accuracy_decimals: 0
+    unit_of_measurement: "SG"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_gravity_label_purple
+            text: !lambda |-
+                    char buffer[8];
+                    snprintf(buffer, sizeof(buffer), "%.3f", id(tilt_gravity_purple).state / 1000.0);
+                    return std::string(buffer);
+
+  - platform: template
+    name: "Tilt Purple Temperature"
+    id: tilt_temperature_purple
+    device_class: "temperature"
+    accuracy_decimals: 1
+    unit_of_measurement: "°C"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_temp_label_purple
+            text: !lambda |-
+                    char buffer[10];
+                    snprintf(buffer, sizeof(buffer), "%.1f °C", id(tilt_temperature_purple).state);
+                    return std::string(buffer);
+    
+  - platform: homeassistant
+    id: pressure_sensor_purple
+    entity_id: ${pressure_sensor_entity_purple}
+    internal: True
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: pressure_label_purple
+            text: !lambda |-
+              char buffer[10];
+              if (std::isnan(id(pressure_sensor_purple).state)) {
+                return std::string("");
+              } else {
+                snprintf(buffer, sizeof(buffer), "%.1f PSI", id(pressure_sensor_purple).state);
+                return std::string(buffer);
+              }
+
+  - platform: template
+    id: tilt_gravity_red
+    name: "Tilt Red Gravity"
+    icon: "mdi:trending-down"
+    accuracy_decimals: 0
+    unit_of_measurement: "SG"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_gravity_label_red
+            text: !lambda |-
+                    char buffer[8];
+                    snprintf(buffer, sizeof(buffer), "%.3f", id(tilt_gravity_red).state / 1000.0);
+                    return std::string(buffer);
+
+  - platform: template
+    name: "Tilt Red Temperature"
+    id: tilt_temperature_red
+    device_class: "temperature"
+    accuracy_decimals: 1
+    unit_of_measurement: "°C"
+    update_interval: never
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: ble_temp_label_red
+            text: !lambda |-
+                    char buffer[10];
+                    snprintf(buffer, sizeof(buffer), "%.1f °C", id(tilt_temperature_red).state);
+                    return std::string(buffer);
+  
+  - platform: homeassistant
+    id: pressure_sensor_red
+    entity_id: ${pressure_sensor_entity_red}
+    internal: True
+    on_value:
+      then:
+        - lvgl.label.update:
+            id: pressure_label_red
+            text: !lambda |-
+              char buffer[10];
+              if (std::isnan(id(pressure_sensor_red).state)) {
+                return std::string("");
+              } else {
+                snprintf(buffer, sizeof(buffer), "%.1f PSI", id(pressure_sensor_red).state);
+                return std::string(buffer);
+              }
+
+psram:
+  mode: quad
+  speed: 80MHz
+
+external_components:
+  - source: github://GadgetFactory/CST816S_touchscreen@1.0.0
+
+spi:
+  clk_pin: GPIO10
+  mosi_pin: GPIO11
+
+output:
+  - platform: ledc
+    pin:
+      number: GPIO02
+    id: backlight_output
+
+light:
+  - platform: monochromatic
+    output: backlight_output
+    name: "${friendly_name} Display Backlight"
+    id: led
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s
+    internal: True
+
+display:
+  - platform: ili9xxx
+    model: GC9A01A
+    id: lcd_display
+    invert_colors: true
+    data_rate: 80MHz
+    cs_pin: GPIO09
+    dc_pin: GPIO08
+    reset_pin: GPIO14
+    auto_clear_enabled: false
+    rotation: 0
+
+i2c:
+  sda: GPIO06
+  scl: GPIO07
+
+interval:
+  - interval: 5s
+    then:
+      - lambda: |-
+          unsigned long now = millis();
+          if (!id(screen_dimmed) && now - id(last_touch_time) > 120000) {
+            id(screen_dimmed) = true;
+          }
+      - if:
+          condition:
+            lambda: 'return id(screen_dimmed);'
+          then:
+            - light.turn_off:
+                id: led
+  - interval: 15min
+    then:
+      - if:
+          condition:
+            lambda: |-
+              return (
+                id(enable_tilt_black) &&
+                !isnan(id(tilt_temperature_black).state) &&
+                !isnan(id(tilt_gravity_black).state)
+              );
+          then:
+            - http_request.post:
+                url: !lambda |-
+                        return "https://log.brewfather.net/stream?id=${brewfather_key}";
+                request_headers: 
+                  Content-Type: application/json
+                body: !lambda |-
+                          char buffer[256];
+
+                          float gravity = id(tilt_gravity_black).state;
+                          if (std::isnan(gravity)) gravity = 0.0;
+                          gravity /= 1000.0;
+
+                          float temp = id(tilt_temperature_black).state;
+                          if (std::isnan(temp)) temp = 0.0;
+
+                          float pressure = id(pressure_sensor_black).state;
+                          if (std::isnan(pressure)) pressure = 0.0;
+
+                          snprintf(buffer, sizeof(buffer),
+                            "{"
+                              "\"device_source\": \"%s\","
+                              "\"name\": \"%s\","
+                              "\"gravity\": %.3f,"
+                              "\"gravity_unit\": \"%s\","
+                              "\"temp\": %.1f,"
+                              "\"temp_unit\": \"%s\","
+                              "\"pressure\": %.2f,"
+                              "\"pressure_unit\": \"%s\""
+                            "}",
+                            "${friendly_name}", 
+                            "Tilt Black", 
+                            gravity,
+                            "G",
+                            temp, 
+                            "C",
+                            pressure,
+                            "PSI"
+                          );
+                          return std::string(buffer);
+
+  - interval: 15min
+    then:
+      - if:
+          condition:
+            lambda: |-
+              return (
+                id(enable_tilt_purple) &&
+                !isnan(id(tilt_temperature_purple).state) &&
+                !isnan(id(tilt_gravity_purple).state)
+              );
+          then:
+            - http_request.post:
+                url: !lambda |-
+                        return "https://log.brewfather.net/stream?id=${brewfather_key}";
+                request_headers: 
+                  Content-Type: application/json
+                body: !lambda |-
+                  char buffer[256];
+                  snprintf(buffer, sizeof(buffer),
+                    "{"
+                      "\"device_source\": \"%s\","
+                      "\"name\": \"%s\","
+                      "\"gravity\": %.3f,"
+                      "\"gravity_unit\": \"%s\","
+                      "\"temp\": %.1f,"
+                      "\"temp_unit\": \"%s\""
+                    "}",
+                    "${friendly_name}", 
+                    "Tilt Purple", 
+                    (id(tilt_gravity_purple).state / 1000.0),
+                    "G",
+                    id(tilt_temperature_purple).state, 
+                    "C"
+                  );
+                  return std::string(buffer);
+  - interval: 15min
+    then:
+      - if:
+          condition:
+            lambda: |-
+              return (
+                id(enable_tilt_red) &&
+                !isnan(id(tilt_temperature_red).state) &&
+                !isnan(id(tilt_gravity_red).state)
+              );
+          then:
+            - http_request.post:
+                url: !lambda |-
+                        return "https://log.brewfather.net/stream?id=${brewfather_key}";
+                request_headers: 
+                  Content-Type: application/json
+                body: !lambda |-
+                  char buffer[256];
+                  snprintf(buffer, sizeof(buffer),
+                    "{"
+                      "\"device_source\": \"%s\","
+                      "\"name\": \"%s\","
+                      "\"gravity\": %.3f,"
+                      "\"gravity_unit\": \"%s\","
+                      "\"temp\": %.1f,"
+                      "\"temp_unit\": \"%s\""
+                    "}",
+                    "${friendly_name}", 
+                    "Tilt Red", 
+                    (id(tilt_gravity_red).state / 1000.0),
+                    "G",
+                    id(tilt_temperature_red).state, 
+                    "C"
+                  );
+                  return std::string(buffer);
+
+touchscreen:
+  platform: cst816
+  id: tiltsense_touchscreen
+  interrupt_pin: GPIO05
+  reset_pin: GPIO13
+  on_touch:
+    then:
+      - lambda: |-
+          int x = touch.x;
+          int y = touch.y;
+
+          id(last_touch_x) = x;
+          id(last_touch_y) = y;
+          id(handle_touch).execute();
+
+script:
+  - id: handle_touch
+    mode: restart
+    then:
+      - lambda: |-
+          id(last_touch_time) = millis();
+      - if:
+          condition:
+            lambda: 'return id(screen_dimmed);'
+          then:
+            - light.turn_on:
+                id: led
+                brightness: 100%
+            - lambda: 'id(screen_dimmed) = false;'
+          else:
+            - if:
+                condition:
+                  lambda: 'return id(last_touch_y) > 220;'
+                then:
+                  - lambda: |-
+                      if (id(current_page) == 0) {
+                        if (id(enable_tilt_black)) {
+                          id(switch_enable_tilt_black).turn_off();
+                        } else {
+                          id(switch_enable_tilt_black).turn_on();
+                        }
+                      } else if (id(current_page) == 1) {
+                        if (id(enable_tilt_purple)) {
+                          id(switch_enable_tilt_purple).turn_off();
+                        } else {
+                          id(switch_enable_tilt_purple).turn_on();
+                        }
+                      } else if (id(current_page) == 2) {
+                        if (id(enable_tilt_red)) {
+                          id(switch_enable_tilt_red).turn_off();
+                        } else {
+                          id(switch_enable_tilt_red).turn_on();
+                        }
+                      }
+            - if:
+                condition:
+                  lambda: 'return id(last_touch_x) < 60 && id(current_page) > 0;'
+                then:
+                  - lambda: |-
+                      id(current_page) -= 1;
+                  - if:
+                      condition:
+                        lambda: 'return id(current_page) == 0;'
+                      then:
+                        - lvgl.page.show: 
+                            id: display_black
+                            animation: MOVE_RIGHT
+                            time: 200ms
+                  - if:
+                      condition:
+                        lambda: 'return id(current_page) == 1;'
+                      then:
+                        - lvgl.page.show:
+                            id: display_purple
+                            animation: MOVE_RIGHT
+                            time: 200ms
+
+            - if:
+                condition:
+                  lambda: 'return id(last_touch_x) > 180 && id(current_page) < 2;'
+                then:
+                  - lambda: |-
+                      id(current_page) += 1;
+                  - if:
+                      condition:
+                        lambda: 'return id(current_page) == 1;'
+                      then:
+                        - lvgl.page.show: 
+                            id: display_purple
+                            animation: MOVE_LEFT
+                            time: 200ms
+                  - if:
+                      condition:
+                        lambda: 'return id(current_page) == 2;'
+                      then:
+                        - lvgl.page.show:
+                            id: display_red
+                            animation: MOVE_LEFT
+                            time: 200ms
+
+lvgl:
+  id: lvgl_id
+  displays:
+    - lcd_display
+  touchscreens:
+    - tiltsense_touchscreen
+  pages:
+    - id: display_black
+      widgets:
+        - arc:
+            id: border_circle_black
+            align: CENTER
+            arc_color: !lambda |-
+                          if (id(enable_tilt_black)) {
+                            return lv_color_hex(0x000000);
+                          } else {
+                            return lv_color_hex(0x808080);
+                          }
+            arc_rounded: true
+            arc_width: 20
+            width: 220
+            height: 220
+        - label:
+            id: ble_gravity_label_black
+            align: CENTER
+            text: " "
+            text_font: montserrat_48
+            y: -35
+        - label:
+            id: ble_temp_label_black
+            align: CENTER
+            text: " "
+            text_font: montserrat_26
+            y: 10
+        - label:
+            id: pressure_label_black
+            align: CENTER
+            text: " "
+            text_font: montserrat_20
+            text_color: 0x707070
+            y: 60
+        - label:
+            align: CENTER
+            text: "Tilt Black"
+            text_font: montserrat_16
+            y: 90
+    - id: display_purple
+      widgets:
+        - arc:
+            id: border_circle_purple
+            align: CENTER
+            arc_color: !lambda |-
+                          if (id(enable_tilt_purple)) {
+                            return lv_color_hex(0x800080);
+                          } else {
+                            return lv_color_hex(0x808080);
+                          }
+            arc_rounded: true
+            arc_width: 20
+            width: 220
+            height: 220
+        - label:
+            id: ble_gravity_label_purple
+            align: CENTER
+            text: " "
+            text_font: montserrat_48
+            y: -35
+        - label:
+            id: ble_temp_label_purple
+            align: CENTER
+            text: " "
+            text_font: montserrat_26
+            y: 10
+        - label:
+            id: pressure_label_purple
+            align: CENTER
+            text: " "
+            text_font: montserrat_20
+            text_color: 0x707070
+            y: 60
+        - label:
+            align: CENTER
+            text: "Tilt Purple"
+            text_font: montserrat_16
+            y: 90
+    - id: display_red
+      widgets:
+        - arc:
+            id: border_circle_red
+            align: CENTER
+            arc_color: !lambda |-
+                          if (id(enable_tilt_red)) {
+                            return lv_color_hex(0xFF0000);
+                          } else {
+                            return lv_color_hex(0x808080);
+                          }
+            arc_rounded: true
+            arc_width: 20
+            width: 225
+            height: 225
+        - label:
+            id: ble_gravity_label_red
+            align: CENTER
+            text: " "
+            text_font: montserrat_48
+            y: -35
+        - label:
+            id: ble_temp_label_red
+            align: CENTER
+            text: " "
+            text_font: montserrat_26
+            y: 10
+        - label:
+            id: pressure_label_red
+            align: CENTER
+            text: " "
+            text_font: montserrat_20
+            text_color: 0x707070
+            y: 60
+        - label:
+            align: CENTER
+            text: "Tilt Red"
+            text_font: montserrat_16
+            y: 90
