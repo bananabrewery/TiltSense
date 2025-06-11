@@ -51,7 +51,7 @@ Here’s what you need to build a complete TiltSense unit:
   A compact, all-in-one ESP32-S3 development board with integrated round LCD and touchscreen.
 
 - [**LiPo Battery 3.7V (1S) 200mAh with JST 1.25mm connector**](https://s.click.aliexpress.com/e/_op2Asqw)  
-  Optional but supported.
+  Optional but supported.  
   ⚠️ **Important**: Check polarity before connecting. Some batteries come with inverted pins!
 
 - [**M2xL2xOD3.2 Brass Heat-Set Inserts**](https://s.click.aliexpress.com/e/_okAnuHg)  
