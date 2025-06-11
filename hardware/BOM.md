@@ -24,4 +24,4 @@ This is the list of hardware components needed to build a full TiltSense unit.
 
 ---
 
-For wiring diagrams and STL files, see the `hardware/` folder in this repository.
+For wiring diagrams and 3D files, see the [MakerWorld model page](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036) and the `hardware/` folder in this repository.

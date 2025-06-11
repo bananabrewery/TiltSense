@@ -63,8 +63,10 @@ Here’s what you need to build a complete TiltSense unit:
 - [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
   Embedded in the 3D-printed case for easy magnetic mounting on fermenters or fridges.
 
-- **3D-Printed Case** *(STLs coming soon)*  
-  A custom enclosure designed for easy assembly, battery integration, and magnetic mounting.
+- **3D-Printed Case**  
+  A custom enclosure designed for easy assembly, battery integration, and magnetic mounting.  
+  🖨️ **Print instructions are available on MakerWorld:**  
+  [https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)
 
 - [**USB-A to USB-C Cable**](https://s.click.aliexpress.com/e/_oCeMiAi)  
   For flashing firmware and charging the internal battery.
@@ -116,4 +118,4 @@ Pull requests are welcome! Feel free to fork, modify, and share ideas via issues
 
 ## 📣 Stay tuned
 
-More features, documentation, and 3D printable files coming soon!
+More features and documentation coming soon!
