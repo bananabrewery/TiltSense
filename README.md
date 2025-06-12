@@ -1,7 +1,5 @@
 # 🍺 TiltSense
 
-![TiltSense logo](assets/logo.png)
-
 **TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and user-friendly tools into a single customizable hub for fermentation monitoring.
 
 After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed with features for homebrewers, hackers, and fermentation geeks alike.
