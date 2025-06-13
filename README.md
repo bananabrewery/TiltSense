@@ -1,35 +1,40 @@
-<div style="text-align: center;">
-  <img src="assets/radar.svg" alt="TiltSense" width="120" />
-  <h1 style="margin-top: 0;">TiltSense</h1>
-</div>
+<img src="assets/radar.svg" alt="TiltSense" width="120" />
 
-**TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and user-friendly tools into a single customizable hub for fermentation monitoring.
+## TiltSense
 
-After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed with features for homebrewers, hackers, and fermentation geeks alike.
+**TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and
+user-friendly tools into a single customizable hub for fermentation monitoring.
+
+After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed
+with features for homebrewers, hackers, and fermentation geeks alike.
 
 ---
 
 ## 📦 Project Status
 
-TiltSense is stable and fully functional in its first release. The current firmware is offered as a complete example configuration.
+TiltSense is stable and fully functional in its first release. The current firmware is offered as a complete example
+configuration.
 
 🛠️ **Ongoing development:**  
-I'm actively working on a dynamic firmware generator that will allow users to create a personalized ESPHome YAML configuration based on their specific setup. The generator will take into account:
+I'm actively working on a dynamic firmware generator that will allow users to create a personalized ESPHome YAML
+configuration based on their specific setup. The generator will take into account:
 
-- ✅ Which **Tilt hydrometers** are used, and their **colors**  
-- 🆚 Whether they are **Tilt** or **Tilt Pro** versions  
-- 🏠 Whether the user has **Home Assistant** integration  
-- 💨 Whether a **pressure sensor** is included  
-- 📡 Whether integration with **Brewfather** is desired  
+- ✅ Which **Tilt hydrometers** are used, and their **colors**
+- 🆚 Whether they are **Tilt** or **Tilt Pro** versions
+- 🏠 Whether the user has **Home Assistant** integration
+- 💨 Whether a **pressure sensor** is included
+- 📡 Whether integration with **Brewfather** is desired
 
-This will simplify the setup process and help adapt TiltSense to a wide variety of use cases with minimal manual editing.
+This will simplify the setup process and help adapt TiltSense to a wide variety of use cases with minimal manual
+editing.
 
 ---
 
 ## 🚀 Features
 
 - **✅ Multi-Tilt Support**  
-  Read and monitor multiple [Tilt Hydrometers](https://tilthydrometer.com/) simultaneously, including standard and Pro models.
+  Read and monitor multiple [Tilt Hydrometers](https://tilthydrometer.com/) simultaneously, including standard and Pro
+  models.
 
 - **📡 Brewfather & Home Assistant Integration**  
   Native support for seamless tracking, automation, and remote data logging.
@@ -67,7 +72,8 @@ This will simplify the setup process and help adapt TiltSense to a wide variety 
 
 Here’s what you need to build a complete TiltSense unit:
 
-- [**ESP32-S3 with 1.28" Round Touchscreen** (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
+- [**ESP32-S3 with 1.28" Round Touchscreen
+  ** (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
   A compact, all-in-one ESP32-S3 development board with integrated round LCD and touchscreen.
 
 - [**LiPo Battery 3.7V (1S) 200mAh with JST 1.25mm connector**](https://s.click.aliexpress.com/e/_op2Asqw)  
@@ -80,12 +86,13 @@ Here’s what you need to build a complete TiltSense unit:
 - [**M2x5mm Screws**](https://s.click.aliexpress.com/e/_omZDYlo)  
   To mount the case and secure the board.
 
-- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
+- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
   Embedded in the 3D-printed case for easy magnetic mounting on fermenters or fridges.
 
 - [**3D-Printed Case**](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)  
   A custom enclosure designed for easy assembly, battery integration, and magnetic mounting.  
-  🖨️ **Print instructions are available on [MakerWorld](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)**.  
+  🖨️ **Print instructions are available
+  on [MakerWorld](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)**.
 
 - [**USB-A to USB-C Cable**](https://s.click.aliexpress.com/e/_oCeMiAi)  
   For flashing firmware and charging the internal battery.
@@ -102,14 +109,15 @@ Here’s what you need to build a complete TiltSense unit:
 3. Follow the on-screen instructions to flash your ESP32.
 4. Access the web UI via mDNS or IP (`http://tiltsense.local/`).
 
-
 ---
 
 ## 🧰 YAML Generator Available
 
 Looking to configure your own TiltSense without editing YAML manually?
 
-Check out the [**TiltSense YAML Generator**](https://bananabrewery.github.io/tiltsense-yaml-generator) — a guided web app that lets you select which Tilt colors you use, whether they're Pro models, and which integrations (like Brewfather or Home Assistant) you want.
+Check out the [**TiltSense YAML Generator**](https://bananabrewery.github.io/tiltsense-yaml-generator) — a guided web
+app that lets you select which Tilt colors you use, whether they're Pro models, and which integrations (like Brewfather
+or Home Assistant) you want.
 
 The tool then generates a ready-to-use ESPHome YAML file tailored to your setup.
 
