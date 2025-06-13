@@ -1,4 +1,7 @@
-# 🍺 TiltSense
+<div style="text-align: center;">
+  <img src="assets/radar.svg" alt="TiltSense" width="120" />
+  <h1 style="margin-top: 0;">TiltSense</h1>
+</div>
 
 **TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and user-friendly tools into a single customizable hub for fermentation monitoring.
 
