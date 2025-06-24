@@ -72,8 +72,7 @@ editing.
 
 Here’s what you need to build a complete TiltSense unit:
 
-- [**ESP32-S3 with 1.28" Round Touchscreen
-  ** (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
+- [**ESP32-S3 with 1.28" Round Touchscreen** (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
   A compact, all-in-one ESP32-S3 development board with integrated round LCD and touchscreen.
 
 - [**LiPo Battery 3.7V (1S) 200mAh with JST 1.25mm connector**](https://s.click.aliexpress.com/e/_op2Asqw)  
