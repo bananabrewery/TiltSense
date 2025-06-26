@@ -114,14 +114,14 @@ Here’s what you need to build a complete TiltSense unit:
 
 Looking to configure your own TiltSense without editing YAML manually?
 
-Check out the [**TiltSense YAML Generator**](https://bananabrewery.github.io/tiltsense-yaml-generator) — a guided web
+Check out the [**TiltSense YAML Generator**](https://bananabrewery.github.io/TiltSenseYAMLGenerator) — a guided web
 app that lets you select which Tilt colors you use, whether they're Pro models, and which integrations (like Brewfather
 or Home Assistant) you want.
 
 The tool then generates a ready-to-use ESPHome YAML file tailored to your setup.
 
 ➡️ **Try it now:**  
-[https://bananabrewery.github.io/tiltsense-yaml-generator](https://bananabrewery.github.io/tiltsense-yaml-generator)
+[https://bananabrewery.github.io/TiltSenseYAMLGenerator](https://bananabrewery.github.io/TiltSenseYAMLGenerator)
 
 
 ---
