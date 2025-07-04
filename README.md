@@ -1,40 +1,41 @@
-<img src="assets/radar.svg" alt="TiltSense" width="120" />
+<div align="center">
+  <img src="assets/logo-text.svg" alt="TiltSense" width="150" />
+</div>
 
 ## TiltSense
 
-**TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and
-user-friendly tools into a single customizable hub for fermentation monitoring.
+**TiltSense** is a flexible and powerful ESP32-based system that brings together multiple sensors, integrations, and user-friendly tools into a single customizable hub for fermentation monitoring.
 
-After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed
-with features for homebrewers, hackers, and fermentation geeks alike.
+After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed with features for homebrewers, hackers, and fermentation geeks alike.
 
 ---
 
 ## 📦 Project Status
 
-TiltSense is stable and fully functional in its first release. The current firmware is offered as a complete example
-configuration.
+TiltSense is stable and fully functional in its first release. The current firmware is offered as a complete example configuration.
 
 🛠️ **Ongoing development:**  
-I'm actively working on a dynamic firmware generator that will allow users to create a personalized ESPHome YAML
-configuration based on their specific setup. The generator will take into account:
+I have now completed a **TiltSense Firmware Builder** — a web app that generates fully customized firmware tailored to your specific setup, eliminating manual editing.
+- ✅ Which **Tilt hydrometers** are used, and their **colors**  
+- 🆚 Whether they are **Tilt** or **Tilt Pro** versions  
+- 🏠 Whether the user has **Home Assistant** integration  
+- 💨 Whether a **pressure sensor** is included  
+- 📡 Whether integration with **Brewfather** is desired  
 
-- ✅ Which **Tilt hydrometers** are used, and their **colors**
-- 🆚 Whether they are **Tilt** or **Tilt Pro** versions
-- 🏠 Whether the user has **Home Assistant** integration
-- 💨 Whether a **pressure sensor** is included
-- 📡 Whether integration with **Brewfather** is desired
+This simplifies setup and allows adapting TiltSense to a wide variety of fermentation scenarios.
 
-This will simplify the setup process and help adapt TiltSense to a wide variety of use cases with minimal manual
-editing.
+Check out the Firmware Builder here:
+[https://bananabrewery.github.io/TiltSenseFirmwareBuilder](https://bananabrewery.github.io/TiltSenseFirmwareBuilder
+)
+
+I’ve also developed a backend compiler service that can build your firmware automatically — no local ESPHome install needed!
 
 ---
 
 ## 🚀 Features
 
 - **✅ Multi-Tilt Support**  
-  Read and monitor multiple [Tilt Hydrometers](https://tilthydrometer.com/) simultaneously, including standard and Pro
-  models.
+  Read and monitor multiple [Tilt Hydrometers](https://tilthydrometer.com/) simultaneously, including standard and Pro models.
 
 - **📡 Brewfather & Home Assistant Integration**  
   Native support for seamless tracking, automation, and remote data logging.
@@ -85,13 +86,12 @@ Here’s what you need to build a complete TiltSense unit:
 - [**M2x5mm Screws**](https://s.click.aliexpress.com/e/_omZDYlo)  
   To mount the case and secure the board.
 
-- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
+- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
   Embedded in the 3D-printed case for easy magnetic mounting on fermenters or fridges.
 
 - [**3D-Printed Case**](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)  
   A custom enclosure designed for easy assembly, battery integration, and magnetic mounting.  
-  🖨️ **Print instructions are available
-  on [MakerWorld](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)**.
+  🖨️ **Print instructions are available on [MakerWorld](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)**.  
 
 - [**USB-A to USB-C Cable**](https://s.click.aliexpress.com/e/_oCeMiAi)  
   For flashing firmware and charging the internal battery.
@@ -103,37 +103,17 @@ Here’s what you need to build a complete TiltSense unit:
 
 ## 🔧 Setup & Flashing
 
-1. Clone this repo or download the latest `.yaml` configuration file.
-2. Install [ESPHome](https://esphome.io/) and run `esphome run tiltsense.yaml`.
-3. Follow the on-screen instructions to flash your ESP32.
+1. Configure and generate your custom firmware using the **TiltSense Firmware Builder** web app:  
+   [https://bananabrewery.github.io/TiltSenseFirmwareBuilder/](https://bananabrewery.github.io/TiltSenseFirmwareBuilder/)
+
+2. You can either:
+  - Compile the firmware yourself using ESPHome, or
+  - Use the backend compiler service integrated in the Firmware Builder to generate a ready-to-flash binary.
+
+3. Flash your ESP32 using [ESPHome](https://web.esphome.io) with the firmware file.
+
 4. Access the web UI via mDNS or IP (`http://tiltsense.local/`).
 
----
-
-## 🧰 YAML Generator Available
-
-Looking to configure your own TiltSense without editing YAML manually?
-
-Check out the [**TiltSense YAML Generator**](https://bananabrewery.github.io/TiltSenseYAMLGenerator) — a guided web
-app that lets you select which Tilt colors you use, whether they're Pro models, and which integrations (like Brewfather
-or Home Assistant) you want.
-
-The tool then generates a ready-to-use ESPHome YAML file tailored to your setup.
-
-➡️ **Try it now:**  
-[https://bananabrewery.github.io/TiltSenseYAMLGenerator](https://bananabrewery.github.io/TiltSenseYAMLGenerator)
-
-
----
-
-## 📁 3D Files
-
-All official 3D models and enclosure designs for TiltSense will be maintained and updated on MakerWorld:
-
-🖨️ **Download and print them here:**  
-[https://makerworld.com/en/models/1509302-tiltsense](https://makerworld.com/en/models/1509302-tiltsense)
-
-This includes the latest versions of the magnetic case, internal mounts, and other printed parts.
 
 ---
 
@@ -160,6 +140,9 @@ TiltSense is built with love using:
 - [Tilt](https://tilthydrometer.com/)
 - Community feedback and personal fermentation obsession 🧪🍻
 
+Special thanks to [Llupols](https://github.com/llupols) for designing the TiltSense logo. Your creativity and talent have given our project a unique identity. Much appreciated!
+
+
 ---
 
 ## 🙌 Contribute
@@ -170,4 +153,4 @@ Pull requests are welcome! Feel free to fork, modify, and share ideas via issues
 
 ## 📣 Stay tuned
 
-More features and documentation coming soon!
+More features, documentation, and exciting new hardware coming soon!
