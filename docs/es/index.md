@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/assets/logo-text.svg" alt="TiltSense" width="200" style="margin-bottom: 1.5rem;" />
+  <img src="../assets/logo-text.svg" alt="TiltSense" width="200" style="margin-bottom: 1.5rem;" />
 </div>
 
 # Bienvenido a la Wiki de TiltSense
