@@ -1,0 +1,54 @@
+site_name: TiltSense - Documentation
+site_url: https://bananabrewery.github.io/TiltSense
+repo_url: https://github.com/bananabrewery/TiltSense
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  font:
+    text: Alexandria Thin
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bananabrewery
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/bananabrewery
+    - icon: fontawesome/brands/facebook
+      link: https://facebook.com/bananabrewery
+    - icon: fontawesome/brands/tiktok
+      link: https://tiktok.com/@bananabrewery
+    - icon: fontawesome/brands/twitter
+      link: https://x.com/BananaBrewery
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/@BananaBrewery
+extra_css:
+  - assets/css/custom.css
+plugins:
+  - search
+  - i18n:
+        docs_structure: folder
+        languages:
+          - locale: en
+            default: true
+            name: English
+            build: true
+          - locale: es
+            name: Spanish
+            build: true
