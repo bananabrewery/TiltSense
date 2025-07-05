@@ -8,20 +8,21 @@ theme:
   font:
     text: Alexandria Thin
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      background: "#f8f9fa"
+    - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
+      background: "#212529"
+  custom_dir: overrides
   features:
     - navigation.footer
 extra:
@@ -40,7 +41,7 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/@BananaBrewery
 extra_css:
-  - assets/css/custom.css
+  - stylesheets/colors.css
 plugins:
   - search
   - i18n:
