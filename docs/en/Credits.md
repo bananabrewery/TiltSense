@@ -22,7 +22,7 @@ TiltSense is the result of many months of dedication, testing, and collaboration
 ## Design and Artwork
 
 <div align="center">
-  <img src="{{ base_url }}/assets/logo-text.svg" alt="TiltSense" width="150" />
+  <img src="../assets/logo-text.svg" alt="TiltSense" width="150" style="margin-bottom: 1rem; margin-top: 1rem;" />
 </div>
 
 - Special thanks to [Llupols](https://github.com/llupols) for designing the unique TiltSense logo and branding, which give the project its distinctive identity.
