@@ -54,3 +54,13 @@ plugins:
           - locale: es
             name: Spanish
             build: true
+nav:
+  - Home: index.md
+  - What is TiltSense?: index.md
+  - Hardware Requirements: Hardware.md
+  - Assembly Instructions: Assembly.md
+  - Firmware Configuration and Installation: Firmware-Setup.md
+  - Device Usage and Features: Usage.md
+  - Development and Contributions: Development.md
+  - Frequently Asked Questions (FAQ): FAQ.md
+  - Credits and Acknowledgements: Credits.md

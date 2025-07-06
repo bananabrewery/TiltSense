@@ -1,3 +1,9 @@
+---
+title: Credits and Acknowledgements
+description: Recognition for the technologies, people, and communities that made the TiltSense project possible.
+icon: material/heart-circle
+---
+
 # Credits and Acknowledgements
 
 TiltSense is the result of many months of dedication, testing, and collaboration within the fermentation and maker communities. This project would not be possible without the support and inspiration of numerous people and tools.

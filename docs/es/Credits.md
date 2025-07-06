@@ -1,3 +1,9 @@
+---
+title: Créditos y Agradecimientos
+description: Reconocimiento a las tecnologías, personas y comunidades que han hecho posible el desarrollo de TiltSense.
+icon: material/heart-circle
+---
+
 # Créditos y Agradecimientos
 
 TiltSense es el resultado de muchos meses de dedicación, pruebas y colaboración dentro de las comunidades de fermentación y makers. Este proyecto no sería posible sin el apoyo e inspiración de numerosas personas y herramientas.
