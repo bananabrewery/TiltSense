@@ -14,7 +14,7 @@ affordable parts.
 
 ### 🔹 ESP32-S3 with 1.28" Round Touchscreen
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_oBHq2mi)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_oBHq2mi)
 
 <div align="center">
   <img src="../assets/hardware/esp32s3.png" alt="TiltSense ESP32-S3" style="max-width: 400px; width: 100%;" />
@@ -36,7 +36,7 @@ For technical details, pinouts, and specifications, refer to the official Wavesh
 
 ### 🔋 LiPo Battery – 3.7V (1S) 200mAh with JST 1.25mm Connector
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_op2Asqw)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_op2Asqw)
 
 <div align="center">
   <img src="../assets/hardware/battery.png" alt="TiltSense Battery" style="max-width: 400px; width: 100%;" />
@@ -55,7 +55,7 @@ A small rechargeable lithium battery that powers the device when disconnected fr
 
 ### 🔩 M2 Brass Heat-Set Inserts
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_okAnuHg)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_okAnuHg)
 
 <div align="center">
   <img src="../assets/hardware/insert.png" alt="TiltSense M2 Insert" style="max-width: 400px; width: 100%;" />
@@ -70,7 +70,7 @@ Heat-set inserts used to reinforce the mounting points of the 3D-printed enclosu
 
 ### 🔧 M2x5mm Screws
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_omZDYlo)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_omZDYlo)
 
 <div align="center">
   <img src="../assets/hardware/screw.png" alt="TiltSense Screw" style="max-width: 400px; width: 100%;" />
@@ -82,7 +82,12 @@ Small metric screws to secure the ESP32 board to the case and fasten the enclosu
 
 ### 🧲 Neodymium Magnet – 20×3 mm
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_oEioES6)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_okD0ylg)
+
+<div align="center">
+  <img src="../assets/hardware/magnet.png" alt="TiltSense Magnet" style="max-width: 400px; width: 100%;" />
+</div>
+
 A circular magnet embedded in the rear of the case, allowing the device to attach firmly to metal surfaces like
 fermentation chambers or kegerators.
 
@@ -103,7 +108,7 @@ A custom-designed case optimized for:
 
 ### 🔌 USB-A to USB-C Cable
 
-[Buy on AliExpress](https://s.click.aliexpress.com/e/_oCeMiAi)  
+[Buy on AliExpress](https://s.click.aliexpress.com/e/_oCeMiAi)
 
 <div align="center">
   <img src="../assets/hardware/cable.png" alt="TiltSense USB Cable" style="max-width: 400px; width: 100%;" />
