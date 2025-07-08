@@ -58,7 +58,7 @@ This allows fast and intuitive switching between hydrometers without needing but
 
 - Tapping the **bottom section** of the screen toggles the selected Tilt between **enabled** and **disabled**.
 - When disabled:
-    - The Tilt is excluded from display rotation and integration updates.
+    - The Tilt is excluded integration updates.
     - No data is sent to Brewfather or Home Assistant.
     - The UI shows the Tilt color as **grayed out** to indicate its inactive state.
 
@@ -90,8 +90,6 @@ This allows users to:
 
 No additional configuration is needed on the device side beyond enabling ESPHome integration in Home Assistant — all
 sensor data will be available as native entities.
-
-> 💡 Pressure sensors configured in TiltSense are also exposed to Home Assistant as real-time entities.
 
 ---
 

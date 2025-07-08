@@ -69,9 +69,9 @@ The device hosts a fully responsive, built-in web interface accessible from any 
 configure firmware settings, enabled sensors, data publishing endpoints, and more — without needing
 to reflash or access the firmware directly.
 
-### 🔀 Sensor Fusion for Pressure Profiling
+### 🔀 Pressure Sensor Integration
 
-TiltSense supports advanced **sensor fusion**, combining gravity data from Tilt Hydrometers with optional pressure
+TiltSense supports **pressure sensor** readings, combining gravity data from Tilt Hydrometers with optional pressure
 sensors. This allows brewers to analyze fermentation dynamics such as pressure curves and pressure-compensated gravity
 estimates, providing deeper insight into closed or pressurized fermentations.
 
@@ -88,7 +88,8 @@ The physical casing is designed specifically for practical use in brewing enviro
 - Compact and durable
 - 3D-printable with standard FDM printers
 - Integrated magnets for easy mounting on fermentation chambers, kegerators, or metal surfaces  
-  All case designs are open-source and fully customizable.
+
+All case designs are open-source and fully customizable.
 
 ### 💡 Intuitive Touchscreen Interface
 
