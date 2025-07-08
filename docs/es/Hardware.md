@@ -7,23 +7,23 @@ icon: material/cube
 # Requisitos de Hardware
 
 Esta sección describe la lista completa de componentes necesarios para ensamblar un dispositivo **TiltSense**
-funcional.  
-Los componentes seleccionados están optimizados para ser compactos, fiables y fáciles de montar, utilizando piezas
+funcional. Los componentes seleccionados están optimizados para ser compactos, fiables y fáciles de montar, utilizando
+piezas
 asequibles y ampliamente disponibles.
 
-## Componentes Requeridos
+## Componentes Necesarios
 
-### 🔹 ESP32-S3 con pantalla táctil redonda de 1.28"
+### 🔹 ESP32-S3 con pantalla táctil circular de 1.28"
 
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_oBHq2mi)
 
 <div align="center">
-  <img src="../assets/hardware/esp32s3.png" alt="TiltSense ESP32-S3" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/esp32s3.png" alt="TiltSense ESP32-S3" style="max-width: 400px; width: 100%;" />
 </div>
 
 Una placa de desarrollo ESP32-S3 todo en uno que incluye:
 
-- Pantalla TFT LCD redonda de **1.28"** con chip **GC9A01A**
+- Pantalla TFT LCD circular de **1.28"** con chip **GC9A01A**
 - Pantalla táctil capacitiva con controlador **CST816S**
 - USB-C integrado, circuito de carga y acceso a pines GPIO
 
@@ -35,18 +35,18 @@ Para más detalles técnicos, esquemas de pines y especificaciones, consulta la 
 
 ---
 
-### 🔋 Batería LiPo – 3.7V (1S) 200 mAh con conector JST 1.25 mm
+### 🔋 Batería LiPo – 3.7V (1S) 200mAh con conector JST 1.25mm
 
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_op2Asqw)
 
 <div align="center">
-  <img src="../assets/hardware/battery.png" alt="Batería TiltSense" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/battery.png" alt="Batería TiltSense" style="max-width: 400px; width: 100%;" />
 </div>
 
 Pequeña batería de litio recargable que alimenta el dispositivo cuando no está conectado por USB.
 
-- Opcional pero soportada
-- Proporciona aprox. 45 minutos de autonomía
+- Es opcional pero tiene soporte
+- Proporciona aproximadamente 45 minutos de autonomía
 - Útil para mover el dispositivo o en caso de cortes de energía temporales
 
 > ⚠️ **Importante**: Verifica siempre la **polaridad** antes de conectar la batería. Algunos proveedores utilizan
@@ -59,37 +59,38 @@ Pequeña batería de litio recargable que alimenta el dispositivo cuando no est�
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_okAnuHg)
 
 <div align="center">
-  <img src="../assets/hardware/insert.png" alt="Inserto M2 TiltSense" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/insert.png" alt="Inserto M2 TiltSense" style="max-width: 400px; width: 100%;" />
 </div>
 
 Inserciones roscadas para reforzar los puntos de anclaje de la carcasa impresa en 3D:
 
 - Dimensiones: **M2 × L2 mm × OD3.2 mm**
-- Se instalan con soldador o herramienta de inserción térmica
+- Se instalan con un soldador o herramienta de inserción térmica
 
 ---
 
-### 🔧 Tornillos M2x5 mm
+### 🔧 Tornillos M2x5mm
 
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_omZDYlo)
 
 <div align="center">
-  <img src="../assets/hardware/screw.png" alt="Tornillo TiltSense" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/screw.png" alt="Tornillo TiltSense" style="max-width: 400px; width: 100%;" />
 </div>
 
 Tornillos métricos pequeños para fijar la placa ESP32 a la carcasa y unir las partes del dispositivo.
 
 ---
 
-### 🧲 Imán de Neodimio – 20×3 mm
+### 🧲 Imán de Neodimio – 20×3mm
 
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_okD0ylg)
 
 <div align="center">
-  <img src="../assets/hardware/magnet.png" alt="Imán TiltSense" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/magnet.png" alt="Imán TiltSense" style="max-width: 400px; width: 100%;" />
 </div>
 
-Imán circular insertado en la parte trasera de la carcasa, que permite fijar el dispositivo firmemente sobre superficies
+Imán cilíndrico insertado en la parte trasera de la carcasa, que permite fijar el dispositivo firmemente sobre
+superficies
 metálicas como fermentadores o neveras.
 
 ---
@@ -113,7 +114,7 @@ Carcasa personalizada diseñada para:
 [Comprar en AliExpress](https://s.click.aliexpress.com/e/_oCeMiAi)
 
 <div align="center">
-  <img src="../assets/hardware/cable.png" alt="Cable USB TiltSense" style="max-width: 400px; width: 100%;" />
+  <img src="../../assets/hardware/cable.png" alt="Cable USB TiltSense" style="max-width: 400px; width: 100%;" />
 </div>
 
 Usado para:
@@ -126,7 +127,7 @@ Usado para:
 
 ## Componentes Opcionales
 
-### 📈 Sensor de Presión *(Opcional — documentación completa próximamente)*
+### 📈 Sensor de Presión *(Opcional — documentación próximamente)*
 
 TiltSense ya soporta monitorización de presión a través de **sensores externos integrados mediante Home Assistant**.
 Esto permite un perfilado avanzado de la fermentación combinando lecturas de densidad y presión en tiempo real.
@@ -152,6 +153,6 @@ Para ensamblar TiltSense, también puedes necesitar:
 ## Notas
 
 - Los componentes aquí listados están basados en montajes ya probados y verificados.
-- La disponibilidad puede variar según la región; se pueden usar piezas equivalentes si coinciden en especificaciones.
+- La disponibilidad puede variar según la región; se podrían usar piezas equivalentes si coinciden con las
+  especificaciones.
 - Verifica siempre el voltaje y la polaridad antes de conectar componentes, especialmente baterías y sensores externos.
-

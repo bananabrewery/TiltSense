@@ -80,7 +80,7 @@ Small metric screws to secure the ESP32 board to the case and fasten the enclosu
 
 ---
 
-### 🧲 Neodymium Magnet – 20×3 mm
+### 🧲 Neodymium Magnet – 20×3mm
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_okD0ylg)
 

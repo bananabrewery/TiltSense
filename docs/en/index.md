@@ -77,7 +77,7 @@ estimates, providing deeper insight into closed or pressurized fermentations.
 
 ### 🔋 Internal Battery Support
 
-TiltSense features a compact Li-Ion/LiPo backup battery providing short-term power autonomy (~45 minutes). This is
+TiltSense features a compact Li-Po backup battery providing short-term power autonomy (~45 minutes). This is
 intended for temporary mobility, system reboots, or brief outages — acting as a lightweight integrated UPS for safe
 transitions and power resilience.
 
