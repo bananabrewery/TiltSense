@@ -43,7 +43,7 @@ TiltSense is the result of many months of dedication, testing, and collaboration
 
 TiltSense is an open-source project, and we are deeply grateful to the people who help bring it to life.
 
-- **@bananabrewery** — Principal developer and project maintainer
+- **[@bananabrewery](https://github.com/bananabrewery)** — Principal developer and project maintainer
 
 More contributors will be added as the project evolves. If you’d like to get involved, check out the [Development and Contributions](Development.md) section.
 

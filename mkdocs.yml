@@ -54,6 +54,15 @@ plugins:
           - locale: es
             name: Spanish
             build: true
+            nav_translations:
+              Home: Inicio
+              Hardware Requirements: Requisitos de Hardware
+              Assembly Instructions: Instrucciones de Montaje
+              Firmware Configuration and Installation: Configuración e Instalación del Firmware
+              Device Usage and Features: Uso del Dispositivo y Funcionalidades
+              Development and Contributions: Desarrollo y Contribuciones
+              Frequently Asked Questions (FAQ): Preguntas Frecuentes (FAQ)
+              Credits and Acknowledgements: Créditos y Agradecimientos
 nav:
   - Home: index.md
   - Hardware Requirements: Hardware.md
