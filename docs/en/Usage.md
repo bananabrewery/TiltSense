@@ -7,7 +7,7 @@ icon: material/gesture-tap-button
 # Device Usage and Features
 
 <div align="center">
-  <img src="../assets/TiltSense%20-%20Screen.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
+  <img src="../assets/prototypes/TiltSense%20-%20Screen.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
 </div>
 
 TiltSense offers a clean, intuitive, and fully touch-based interface for monitoring and managing your active
@@ -22,7 +22,7 @@ The TiltSense display is fully capacitive and responds to light finger taps. The
 interactive zones**:
 
 <div align="center">
-  <img src="../assets/TiltSense%20-%20Interactions.svg" alt="TiltSense Screen" style="max-width: 750px; width: 100%;" />
+  <img src="../assets/prototypes/TiltSense%20-%20Interactions.svg" alt="TiltSense Screen" style="max-width: 750px; width: 100%;" />
 </div>
 - **Left section** — Tap to navigate to the **previous Tilt** in the list.
 - **Right section** — Tap to navigate to the **next Tilt**.
@@ -46,7 +46,7 @@ This allows fast and intuitive switching between hydrometers without needing but
   reading** is also shown alongside gravity and temperature.
 
 <div align="center">
-  <img src="../assets/TiltSense%20-%20With%20Pressure.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
+  <img src="../assets/prototypes/TiltSense%20-%20With%20Pressure.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
 </div>
 
 ### 💤 Sleep Mode
@@ -63,7 +63,7 @@ This allows fast and intuitive switching between hydrometers without needing but
     - The UI shows the Tilt color as **grayed out** to indicate its inactive state.
 
 <div align="center">
-  <img src="../assets/TiltSense%20-%20Disabled.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
+  <img src="../assets/prototypes/TiltSense%20-%20Disabled.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
 </div>
 
 This feature is useful when a Tilt is not in use or is powered off, helping to reduce system workload.

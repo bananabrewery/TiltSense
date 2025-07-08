@@ -198,17 +198,17 @@ To flash the firmware:
 
 ## 🧯 Troubleshooting
 
-### ❌ "Timed out waiting for packet header"
+### "Timed out waiting for packet header"
 
 - Make sure the USB-C cable supports data (not just charging).
 - Try holding the BOOT button while clicking "Connect".
 
-### ❌ No Wi-Fi connection after flashing
+### No Wi-Fi connection after flashing
 
 - Rebuild the firmware ensuring Wi-Fi credentials are correct.
 - Make sure your network is 2.4GHz (ESP32-S3 does not support 5GHz).
 
-### ❌ Tilt data not showing up
+### Tilt data not showing up
 
 - Make sure the Tilt is active and transmitting.
 - Ensure the selected color in the firmware matches the physical device.

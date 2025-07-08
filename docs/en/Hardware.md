@@ -15,6 +15,11 @@ affordable parts.
 ### 🔹 ESP32-S3 with 1.28" Round Touchscreen
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_oBHq2mi)  
+
+<div align="center">
+  <img src="../assets/hardware/esp32s3.png" alt="TiltSense ESP32-S3" style="max-width: 400px; width: 100%;" />
+</div>
+
 A compact, all-in-one ESP32-S3 development board featuring:
 
 - A 1.28" round **GC9A01A** TFT LCD
@@ -24,11 +29,19 @@ A compact, all-in-one ESP32-S3 development board featuring:
 > 📌 This is the core of the TiltSense system. Make sure your version includes both the GC9A01A display and CST816S touch
 > controller.
 
+For technical details, pinouts, and specifications, refer to the official Waveshare documentation:  
+🔗 [ESP32-S3-Touch-LCD-1.28 — Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.28)
+
 ---
 
 ### 🔋 LiPo Battery – 3.7V (1S) 200mAh with JST 1.25mm Connector
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_op2Asqw)  
+
+<div align="center">
+  <img src="../assets/hardware/battery.png" alt="TiltSense Battery" style="max-width: 400px; width: 100%;" />
+</div>
+
 A small rechargeable lithium battery that powers the device when disconnected from USB.
 
 - Optional but supported
@@ -43,6 +56,11 @@ A small rechargeable lithium battery that powers the device when disconnected fr
 ### 🔩 M2 Brass Heat-Set Inserts
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_okAnuHg)  
+
+<div align="center">
+  <img src="../assets/hardware/insert.png" alt="TiltSense M2 Insert" style="max-width: 400px; width: 100%;" />
+</div>
+
 Heat-set inserts used to reinforce the mounting points of the 3D-printed enclosure:
 
 - Dimensions: **M2 × L2 mm × OD3.2 mm**
@@ -53,6 +71,11 @@ Heat-set inserts used to reinforce the mounting points of the 3D-printed enclosu
 ### 🔧 M2x5mm Screws
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_omZDYlo)  
+
+<div align="center">
+  <img src="../assets/hardware/screw.png" alt="TiltSense Screw" style="max-width: 400px; width: 100%;" />
+</div>
+
 Small metric screws to secure the ESP32 board to the case and fasten the enclosure parts.
 
 ---
@@ -81,6 +104,12 @@ A custom-designed case optimized for:
 ### 🔌 USB-A to USB-C Cable
 
 [Buy on AliExpress](https://s.click.aliexpress.com/e/_oCeMiAi)  
+
+<div align="center">
+  <img src="../assets/hardware/cable.png" alt="TiltSense USB Cable" style="max-width: 400px; width: 100%;" />
+</div>
+
+
 Used to:
 
 - Flash the firmware using the TiltSense Web Builder
