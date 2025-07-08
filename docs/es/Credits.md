@@ -39,6 +39,14 @@ TiltSense es el resultado de muchos meses de dedicación, pruebas y colaboració
 
 - A todos los geeks de la fermentación y cerveceros experimentales que inspiran la mejora continua. 🧪🍻
 
+## Contribuciones
+
+TiltSense es un proyecto open-source, y estamos especialmente agradecidos a todas las personas que han ayudado a hacerlo una realidad.
+
+- **@bananabrewery** — Desarrollador principal y encargado del mantenimiento del proyecto
+- 
+- Se añadirán más colaboradores a medida que el proyecto evolucione. Si quieres participar, consulta la sección de [Desarrollo y Contribuciones](Development.md).
+
 ## Agradecimientos Adicionales
 
 - A los colaboradores y beta testers que han ayudado a identificar problemas y mejorar funcionalidades.

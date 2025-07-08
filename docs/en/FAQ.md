@@ -48,7 +48,7 @@ It is **strongly recommended** to flash the firmware **before closing the enclos
 
 ### 🌐 Can I access TiltSense from my browser?
 
-Yes. TiltSense includes a **built-in web interface** served locally over Wi-Fi. You can use this interface to view data, configure settings, and connect to Brewfather or Home Assistant.
+Yes. TiltSense includes a **built-in web interface** served locally over Wi-Fi. You can use this interface to view data and configure settings.
 
 ---
 
