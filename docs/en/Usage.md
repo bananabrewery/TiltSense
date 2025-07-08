@@ -2,6 +2,7 @@
 title: Device Usage and Features
 description: Learn how to interact with the TiltSense touchscreen interface and explore the features that make fermentation monitoring simple and efficient.
 icon: material/gesture-tap-button
+glightbox: false
 ---
 
 # Device Usage and Features

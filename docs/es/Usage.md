@@ -2,6 +2,7 @@
 title: Uso del Dispositivo y Funcionalidades
 description: Aprende a interactuar con la interfaz táctil de TiltSense y explora las funciones que hacen que el seguimiento de la fermentación sea sencillo y eficiente.
 icon: material/gesture-tap-button  
+glightbox: false
 ---
 
 # Uso del Dispositivo y Funcionalidades

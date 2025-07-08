@@ -43,6 +43,7 @@ extra:
 extra_css:
   - stylesheets/colors.css
 plugins:
+  - glightbox
   - search
   - i18n:
         docs_structure: folder
@@ -72,3 +73,5 @@ nav:
   - Development and Contributions: Development.md
   - Frequently Asked Questions (FAQ): FAQ.md
   - Credits and Acknowledgements: Credits.md
+markdown_extensions:
+  - meta
