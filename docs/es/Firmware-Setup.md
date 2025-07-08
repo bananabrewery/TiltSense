@@ -146,35 +146,35 @@ seleccionadas.
 
 ![summary.png](assets/firmware-builder/summary.png)
 
-Este paso sirve para validar:
+Este resumen sirve como validación final para asegurar la consistencia del setup. Por ejemplo:
 
-- Que los campos requeridos estén completos.
-- Que Wi-Fi esté configurado si usas integraciones.
-- Que no haya conflictos o errores en la configuración.
+- Que los campos requeridos estén rellenados.
+- Que Wi-Fi esté configurado correctamente si usas las integraciones de Brewfather o Home Assistant.
+- Que no haya conflictos o campos incompletos en la configuración.
 
-Una vez validado:
+Una vez el proceso queda validado:
 
-- Se activa el botón **"Generar archivo de firmware"**.
-- Se crea un archivo YAML completo de ESPHome adaptado a tu configuración.
+- Se activará el botón **"Generar fichero de firmware"**.
+- Se crea un archivo YAML de ESPHome completo y adaptado a tu configuración.
 
-Puedes:
+El fichero YAML se puede visualizar en un visor de código integrado que permite:
 
-- **Previsualizar** la configuración.
-- **Copiar** el YAML si usas ESPHome por tu cuenta.
-- **Descargar** el archivo para instalarlo manualmente.
+- **Previsualizar** la configuración completa.
+- **Copiar** el YAML por si quieres compilar e instalar el firmware mediante ESPHome por tu cuenta.
+- **Descargar** el archivo para instalarlo manualmente o echar un vistazo en offline.
 
 ![yaml-viewer.png](assets/firmware-builder/yaml-viewer.png)
 
 
-> 🛠️ Usuarios avanzados pueden usar ESPHome directamente. Para el resto, puedes dejar que la app compile el firmware por
-> ti.
+> 🛠️ Los usuarios avanzados pueden usar su instancia de ESPHome directamente. Para el resto, continua al próximo paso y
+> deja que la aplicación **compile el firmwpare por ti automáticamente**.
 
 
 ---
 
 ## 🛠️ Compilar y Descargar el Firmware
 
-Una vez validada la configuración, puedes compilar el firmware.
+Una vez tu configuración ha sido validada, puedes proceder con la compilación de tu firmware.
 
 ![compile.png](assets/firmware-builder/compile.png)
 
@@ -182,42 +182,47 @@ Una vez validada la configuración, puedes compilar el firmware.
 
 ### Cómo Funciona
 
-- La app te guiará a la sección de **Compilación**.
-- Compilar puede tardar varios minutos (hasta **10 minutos**).
-- La compilación ocurre **en segundo plano**.
-- Al finalizar, recibirás el archivo `firmware.factory.bin` en tu **correo electrónico**.
+- La app te guiará a la sección de **Compilación del firmware**.
+- La compilación del firmware requiere de grandes recursos para procesar y puede tardar varios minutos (hasta **10
+  minutos**).
+- Para asegurar la operativa, la compilación se realizará **en segundo plano**.
+- Una vez esté todo listo, recibirás el archivo de firmware compilado (`firmware.factory.bin`) mediante un **correo
+  electrónico** directo en tu buzón.
 
 ### Por Qué se Solicita tu Email
 
-- Se requiere para enviarte el firmware.
-- **No se guarda ni almacena** — se usa solo para el envío.
-- Sin email válido, no se puede completar la compilación.
+- Tu dirección de correo electrónico es requerido para hacerte llegar el firmware compilado.
+- Tu email **no se guarda ni se almacena** — se usa únicamente una vez para entregar tu firmware personalizado.
+- Sin introducir un email válido, el proceso de compilación no se puede completar.
 
 ### Política de Compilación
 
-- Cada usuario puede compilar **una vez por hora**.
-- Las peticiones se procesan por **orden de llegada**.
+Para asegurar un uso adecuado y óptimo de los recursos:
+
+- Cada usuario puede compilar **una firmware por hora**.
+- Si hay múltiples peticiones se compilación se gestionarán mediante una cola por **orden de llegada**.
 
 ![email.png](assets/firmware-builder/email.png)
 
-You’ll receive an email with a download link as soon as your firmware is ready.
+Recibirás un email con el fichero del firmware compilado adjunto tan pronto como haya terminado el proceso.
 
-> 📩 Si no ves el email en 30 minutos, revisa tu carpeta de spam.
+> 📩 Revisa tu carpeta de spam si no recibes el correo después de 30 minutos.
 
-The final step is to **install the firmware** on your TiltSense device — see the next section for instructions.
+El paso final es **instalar el firmware** en tu dispositivo TiltSense. Sigue a la próxima sección para más información.
 
 ---
 
 ## ⚡ Cómo Flashear el Firmware
 
-To flash the firmware:
+Para instalar el firmware:
 
-1. Conecta el dispositivo TiltSense por **USB-C** al ordenador.
+1. Conecta el dispositivo TiltSense por **USB-C** a tu ordenador.
 2. Abre [ESPHome Web Flasher](https://esphome.github.io/esphome-web/).
-3. Haz clic en **"Connect"** y selecciona el ESP32-S3.
-4. Carga el archivo `.bin` descargado.
+3. Haz clic en **"Connect"** y selecciona el dispositivo ESP32-S3.
+4. Carga el archivo `.bin` descargado en el anterior paso.
 
-> 💡 Si falla, mantén pulsado el botón BOOT al conectar.
+> 💡 Si el proceso de instalación falla, puede que debas **mantener pulsado el botón de BOOT** de tu placa ESP32-S3
+> mientras lo conectas al ordenador.
 
 ---
 
@@ -225,20 +230,20 @@ To flash the firmware:
 
 ### "Timed out waiting for packet header"
 
-- Asegúrate de que el cable USB-C **sirve para datos**.
+- Asegúrate de que el cable USB-C **sirve para datos** y no se trata de un cable únicamente para carga.
 - Mantén pulsado **BOOT** mientras haces clic en "Connect".
 
 ### No hay conexión Wi-Fi tras flashear
 
 - Recompila el firmware asegurando que Wi-Fi está bien escrito.
-- Verifica que tu red sea de **2.4GHz** (ESP32-S3 no soporta 5GHz).
+- Verifica que tu red sea de **2.4GHz** (ESP32-S3 no soporta redes 5GHz).
 
-### No aparece el Tilt
+### No aparecen los datos del Tilt
 
 - Asegúrate de que el Tilt está activo y transmitiendo.
-- Verifica que el color coincida con el del firmware.
-- Comprueba que esté habilitado en la pantalla (no en gris).
+- Verifica que el color del dispositivo físico coincida con el configurado en el firmware.
+- Comprueba que el Tilt esté habilitado en la pantalla (no se muestra en color gris).
 
 ---
-Para soporte adicional, visita las [Discusiones en GitHub](https://github.com/bananabrewery/TiltSense/discussions) o
+Para cualquier soporte adicional, visita las [Discusiones en GitHub](https://github.com/bananabrewery/TiltSense/discussions) o
 abre un [Issue](https://github.com/bananabrewery/TiltSense/issues).

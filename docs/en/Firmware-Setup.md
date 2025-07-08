@@ -199,7 +199,7 @@ To ensure fair access and optimal resource usage:
 
 ![email.png](assets/firmware-builder/email.png)
 
-You’ll receive an email with a download link as soon as your firmware is ready.
+You’ll receive an email with the file attached as soon as your firmware is ready.
 
 > 📩 Check your spam folder if you don’t receive the email after 30 minutes.
 
