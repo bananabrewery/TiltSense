@@ -96,8 +96,12 @@ The device includes a high-resolution capacitive touchscreen powered by **LVGL**
 Users can interact with a clean, real-time display featuring gravity plots, sensor status, visual alerts, and
 swipe-based navigation.
 
-### 💰 Cost-Effective & Fully Open Source
+### 💰 Cost-Effective
 
-TiltSense is built entirely from affordable, off-the-shelf components based on the ESP32 platform. The firmware, web
-interface, 3D enclosure, and configuration tools are all **open source**, making it accessible to makers, brewers, and
-developers without license fees or vendor lock-in.
+TiltSense is built entirely from affordable, off-the-shelf components based on the ESP32 platform. This makes it an
+ideal low-cost solution for those looking for functionality without high expenses.
+
+### 🛠️ Fully Open Source
+
+The firmware, web interface, 3D-printed enclosure, and configuration tools are all fully open source. This ensures
+accessibility for makers, brewers, and developers — without license fees or vendor lock-in.
