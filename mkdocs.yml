@@ -56,7 +56,6 @@ plugins:
             build: true
 nav:
   - Home: index.md
-  - What is TiltSense?: index.md
   - Hardware Requirements: Hardware.md
   - Assembly Instructions: Assembly.md
   - Firmware Configuration and Installation: Firmware-Setup.md
