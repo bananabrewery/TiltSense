@@ -44,6 +44,8 @@ You can access the builder here:
 
 To use TiltSense, you must select **at least one Tilt hydrometer**.
 
+![tilts.png](assets/firmware-builder/tilts.png)
+
 For each Tilt you enable:
 
 - You can specify whether it’s a **Tilt Pro** or a standard model.
@@ -60,6 +62,8 @@ unnecessary communication.
 
 You can provide your **Wi-Fi SSID and password** to allow TiltSense to connect to your local network.
 
+![wifi.png](assets/firmware-builder/wifi.png)
+
 This is required for:
 
 - Accessing the **web interface** at [`http://tiltsense.local`](http://tiltsense.local)
@@ -72,6 +76,8 @@ If omitted, TiltSense will operate in offline mode.
 ### Brewfather Integration (Optional)
 
 Enable this option if you want TiltSense to send your fermentation data directly to your **Brewfather account**.
+
+![brewfather.png](assets/firmware-builder/brewfather.png)
 
 To set it up, you’ll need to provide:
 
@@ -92,7 +98,10 @@ Readings are sent every **15 minutes**, following Brewfather’s official specif
 
 ### Home Assistant Integration (Optional)
 
-When enabled, TiltSense connects to your local network and integrates directly with **Home Assistant** as a native ESPHome node.
+When enabled, TiltSense connects to your local network and integrates directly with **Home Assistant** as a native
+ESPHome node.
+
+![homeassistant.png](assets/firmware-builder/homeassistant.png)
 
 TiltSense exposes the following entities to Home Assistant:
 
@@ -110,10 +119,13 @@ This allows for full monitoring and control of your fermentation process directl
 
 If you enable the Home Assistant integration, you can also link **external pressure sensors** to TiltSense.
 
+![homeassistant.png](assets/firmware-builder/homeassistant.png)
+
 Once this option is activated:
 
 - A new section will appear showing the list of **enabled Tilt hydrometers**.
-- For each active Tilt, you can enter the corresponding **Home Assistant entity ID** of a pressure sensor (e.g., `sensor.pressure_sensor_current_pressure`).
+- For each active Tilt, you can enter the corresponding **Home Assistant entity ID** of a pressure sensor (e.g.,
+  `sensor.pressure_sensor_current_pressure`).
 - These sensors must already exist and be available in your Home Assistant setup.
 
 By providing a pressure entity for a given Tilt:
@@ -121,13 +133,16 @@ By providing a pressure entity for a given Tilt:
 - **Live pressure readings** will be displayed alongside gravity and temperature on the TiltSense screen.
 - The pressure value will also be **sent to Brewfather** every 15 minutes, if Brewfather integration is enabled.
 
-> 🧠 This setup allows advanced fermentation profiling under pressure, combining gravity, temperature, and pressure in one view.
+> 🧠 This setup allows advanced fermentation profiling under pressure, combining gravity, temperature, and pressure in
+> one view.
 
 ---
 
 ## ✅ Configuration Validation
 
 Before generating the firmware, the application presents a **Configuration Summary** showing all selected options.
+
+![summary.png](assets/firmware-builder/summary.png)
 
 This summary serves as a final validation step to ensure consistency across your setup. For example:
 
@@ -146,6 +161,9 @@ The YAML file is shown in a built-in code viewer, allowing you to:
 - **Copy** the YAML if you want to compile and flash the firmware using your own ESPHome setup.
 - **Download** the file for offline use or manual installation.
 
+![yaml-viewer.png](assets/firmware-builder/yaml-viewer.png)
+
+
 > 🛠️ Advanced users can manage everything manually with ESPHome.  
 > For everyone else, you can continue to the next step and let the app **compile the firmware for you automatically**.
 
@@ -154,6 +172,10 @@ The YAML file is shown in a built-in code viewer, allowing you to:
 ## 🛠️ Build and Download Firmware
 
 Once your configuration has been validated successfully, you can proceed to compile the firmware.
+
+![compile.png](assets/firmware-builder/compile.png)
+
+![finished.png](assets/firmware-builder/finished.png)
 
 ### How It Works
 
@@ -174,6 +196,8 @@ To ensure fair access and optimal resource usage:
 
 - Each user can build **one firmware per hour**.
 - Multiple build requests are handled via a **first-in, first-out queue**.
+
+![email.png](assets/firmware-builder/email.png)
 
 You’ll receive an email with a download link as soon as your firmware is ready.
 
