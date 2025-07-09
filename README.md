@@ -70,7 +70,13 @@ needed!
 
 ## 📷 Screenshots
 
-*Coming soon…*
+<div align="center">
+  <img src="docs/en/assets/prototypes/TiltSense%20-%20With%20Pressure.svg" alt="TiltSense Screen" style="max-width: 400px; width: 100%;" />
+</div>
+
+<div align="center">
+  <img src="docs/en/assets/prototypes/TiltSense%20-%20With%20Interactions.svg" alt="TiltSense Interactions" style="max-width: 750px; width: 100%;" />
+</div>
 
 ---
 
