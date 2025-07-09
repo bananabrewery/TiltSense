@@ -10,6 +10,9 @@ user-friendly tools into a single customizable hub for fermentation monitoring.
 After months of design, development, and testing, the first stable release is finally out of the oven — and it's packed
 with features for homebrewers, hackers, and fermentation geeks alike.
 
+🧪 The complete documentation is now available at:  
+👉 [https://bananabrewery.github.io/TiltSense](https://bananabrewery.github.io/TiltSense)
+
 ---
 
 ## 📦 Project Status
@@ -18,8 +21,7 @@ TiltSense is stable and fully functional in its first release. The current firmw
 configuration.
 
 🛠️ **Ongoing development:**  
-I have now completed a **TiltSense Firmware Builder** — a web app that generates fully customized firmware tailored to
-your specific setup, eliminating manual editing.
+A **TiltSense Firmware Builder** is available — a web app that generates fully customized firmware tailored to your specific setup, eliminating manual editing.
 
 - ✅ Which **Tilt hydrometers** are used, and their **colors**
 - 🆚 Whether they are **Tilt** or **Tilt Pro** versions
@@ -29,9 +31,8 @@ your specific setup, eliminating manual editing.
 
 This simplifies setup and allows adapting TiltSense to a wide variety of fermentation scenarios.
 
-Check out the Firmware Builder here:
-[https://bananabrewery.github.io/TiltSenseFirmwareBuilder](https://bananabrewery.github.io/TiltSenseFirmwareBuilder
-)
+Check out the Firmware Builder here:  
+👉 [https://bananabrewery.github.io/TiltSenseFirmwareBuilder](https://bananabrewery.github.io/TiltSenseFirmwareBuilder)
 
 I’ve also developed a backend compiler service that can build your firmware automatically — no local ESPHome install
 needed!
@@ -77,8 +78,8 @@ needed!
 
 Here’s what you need to build a complete TiltSense unit:
 
-- [**ESP32-S3 with 1.28" Round Touchscreen
-  ** (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
+- [**ESP32-S3 with 1.28" Round Touchscreen**
+  (GC9A01A display + CST816S capacitive touch)](https://s.click.aliexpress.com/e/_oBHq2mi)  
   A compact, all-in-one ESP32-S3 development board with integrated round LCD and touchscreen.
 
 - [**LiPo Battery 3.7V (1S) 200mAh with JST 1.25mm connector**](https://s.click.aliexpress.com/e/_op2Asqw)  
@@ -105,17 +106,18 @@ Here’s what you need to build a complete TiltSense unit:
 - **Pressure Sensor** *(optional — details coming soon)*  
   Used for advanced fermentation tracking by monitoring internal vessel pressure.
 
+🖨️ Print instructions are available on [MakerWorld](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)
+
 ---
 
 ## 🔧 Setup & Flashing
 
-1. Configure and generate your custom firmware using the **TiltSense Firmware Builder** web app:  
-   [https://bananabrewery.github.io/TiltSenseFirmwareBuilder/](https://bananabrewery.github.io/TiltSenseFirmwareBuilder/)
+1. Configure and generate your custom firmware using the Firmware Builder:  
+   👉 [https://bananabrewery.github.io/TiltSenseFirmwareBuilder/](https://bananabrewery.github.io/TiltSenseFirmwareBuilder/)
 
 2. You can either:
-
-- Compile the firmware yourself using ESPHome, or
-- Use the backend compiler service integrated in the Firmware Builder to generate a ready-to-flash binary.
+    - Compile the firmware yourself using ESPHome, or
+    - Use the backend compiler service integrated in the Firmware Builder to generate a ready-to-flash binary.
 
 3. Flash your ESP32 using [ESPHome](https://web.esphome.io) with the firmware file.
 
@@ -184,6 +186,14 @@ This is useful if you want to deploy the documentation (e.g. to GitHub Pages).
 
 ---
 
+## 🙋 Community & Support
+
+- ❗ Report bugs or request features: [Open an issue](https://github.com/bananabrewery/TiltSense/issues)
+- 💬 Share ideas and ask questions: [Join the discussion](https://github.com/bananabrewery/TiltSense/discussions)
+- 🤝 Want to help? Contributions are welcome!
+
+---
+
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -207,7 +217,8 @@ have given our project a unique identity. Much appreciated!
 
 ## 🙌 Contribute
 
-Pull requests are welcome! Feel free to fork, modify, and share ideas via issues or discussions.
+Pull requests are welcome! Fork the repo, improve the code or docs, and open a PR.  
+You can also contribute by sharing feedback or joining discussions.
 
 ---
 
