@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo-text.svg" alt="TiltSense"/>
+  <img src="assets/logo-text.svg" alt="TiltSense" width="200"/>
 </div>
 
 ## TiltSense
