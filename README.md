@@ -94,7 +94,7 @@ Here’s what you need to build a complete TiltSense unit:
 - [**M2x5mm Screws**](https://s.click.aliexpress.com/e/_omZDYlo)  
   To mount the case and secure the board.
 
-- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_oEioES6)  
+- [**Neodymium Magnet 20×3 mm**](https://s.click.aliexpress.com/e/_okD0ylg)  
   Embedded in the 3D-printed case for easy magnetic mounting on fermenters or fridges.
 
 - [**3D-Printed Case**](https://makerworld.com/en/models/1509302-tiltsense#profileId-1580036)  
