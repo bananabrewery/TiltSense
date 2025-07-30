@@ -87,7 +87,7 @@ The physical casing is designed specifically for practical use in brewing enviro
 
 - Compact and durable
 - 3D-printable with standard FDM printers
-- Integrated magnets for easy mounting on fermentation chambers, kegerators, or metal surfaces  
+- Integrated magnets for easy mounting on fermentation chambers, kegerators, or metal surfaces
 
 All case designs are open-source and fully customizable.
 
@@ -106,3 +106,31 @@ ideal low-cost solution for those looking for functionality without high expense
 
 The firmware, web interface, 3D-printed enclosure, and configuration tools are all fully open source. This ensures
 accessibility for makers, brewers, and developers — without license fees or vendor lock-in.
+
+---
+
+## Next Steps
+
+### TiltSense Max
+
+We're adding support for a new device based on the same ESP32-S3 architecture, but equipped with a much larger display
+and double the screen resolution. Once ESPHome adds chart support for LVGL, this screen will offer a wide range of
+options — including visualizing gravity and temperature readings during fermentation, directly on the TiltSense device.
+
+### ESPHome Improvements
+
+We're implementing enhancements made possible by ESPHome, such as:
+
+- Improved web interface
+- Better touch responsiveness
+- Optimized code performance
+
+### New TiltSense Satellites: Pressure Sensor and Valve
+
+Two new modules are already developed and currently being tested in real-world scenarios. Full documentation and
+open-source details will be shared soon.
+
+- **Pressure Sensor:** Monitors fermentation pressure in real time and allows you to set a target value. The pressure
+  valve will automatically accumulate or release pressure based on this setting.
+- **Pressure Valve:** A simple actuator that opens or closes to release excess pressure from the fermentation vessel
+  when needed.

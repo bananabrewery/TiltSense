@@ -43,7 +43,8 @@ TiltSense se integra perfectamente con plataformas populares de fermentación y 
 Assistant, permitiendo visualización remota de datos, automatización y registro de eventos.
 
 Con una interfaz táctil intuitiva integrada en una carcasa magnética compacta impresa en 3D, TiltSense combina
-portabilidad, facilidad de uso y funcionalidades avanzadas en un solo dispositivo ideal para cualquier setup homebrewing.
+portabilidad, facilidad de uso y funcionalidades avanzadas en un solo dispositivo ideal para cualquier setup
+homebrewing.
 
 Para empezar, consulta las secciones siguientes con listas de hardware detalladas, instrucciones de montaje,
 configuración de firmware ¡y mucho más!
@@ -108,3 +109,32 @@ ESP32. Esto lo convierte en una solución de bajo coste ideal para quienes busca
 
 El firmware, la interfaz web, la carcasa impresa en 3D y las herramientas de configuración son completamente de código
 abierto. Esto garantiza accesibilidad para makers, cerveceros y desarrolladores — sin licencias ni ataduras.
+
+---
+
+## Próximos pasos
+
+### TiltSense Max
+
+Estamos añadiendo soporte para un nuevo dispositivo basado en la misma arquitectura ESP32-S3, pero equipado con una
+pantalla mucho más grande y con el doble de resolución. En cuanto ESPHome incorpore compatibilidad con gráficos en LVGL,
+esta pantalla ofrecerá un amplio abanico de opciones — incluyendo la visualización de los valores de densidad y
+temperatura durante la fermentación, directamente en el dispositivo TiltSense.
+
+### Mejoras en ESPHome
+
+Estamos implementando mejoras gracias a las capacidades de ESPHome, como por ejemplo:
+
+- Interfaz web mejorada
+- Mayor sensibilidad táctil
+- Optimización del rendimiento del código
+
+### Nuevos satélites TiltSense: Sensor de Presión y Válvula
+
+Dos nuevos módulos ya están desarrollados y se están probando en escenarios reales. Muy pronto se compartirá toda la
+documentación e información como proyecto abierto.
+
+- **Sensor de Presión:** Monitoriza la presión durante la fermentación en tiempo real y permite configurar un valor
+  objetivo. La válvula de presión acumulará o liberará presión automáticamente en función de este valor.
+- **Válvula de Presión:** Actuador simple que abre o cierra la válvula para liberar el exceso de presión del fermentador
+  cuando sea necesario.
